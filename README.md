@@ -1,4 +1,4 @@
-# opencl-osx
+# OpenCL C++ to SPIRV compiler
 
 Goal: Run OpenCL C++ code on a MacBook Air (Mid 2013) OSX 10.11.6 (15G31) by compiling first to SPIRV and then to Metal.
 
@@ -37,4 +37,10 @@ To compile, assuming we copied the clang binary to bin/clang-cl and libclcxx is 
 
 ```bin/clang-cl -cc1 -emit-spirv -triple spir-unknown-unknown -cl-std=c++ -I libclcxx/include -x cl -o foo.spv foo.cl```
 
+# The OpenCL C++ language
+* `#include <opencl_def>` for float4 etc. and size_t types
+* `#include <opencl_work_item>` for cl::get_global_id()
+* `#include <opencl_memory>` for cl::global_ptr etc.
+
+# Metal
 Next step is converting SPIRV to Metal and writing a Loader for Metal code.
