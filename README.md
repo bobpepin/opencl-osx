@@ -2,6 +2,8 @@
 
 Goal: Run OpenCL C++ code on a MacBook Air (Mid 2013) OSX 10.11.6 (15G31) by compiling first to SPIRV and then to Metal.
 
+Blocked by: SPIRV-Cross only supports SPIR-V "profile" for GLSL, not OpenCL
+
 Links:
 https://github.com/KhronosGroup/SPIR/tree/spirv-1.1
 https://github.com/KhronosGroup/SPIRV-LLVM
