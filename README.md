@@ -9,6 +9,7 @@ https://github.com/KhronosGroup/SPIRV-Tools
 https://github.com/KhronosGroup/SPIRV-Cross
 https://github.com/KhronosGroup/libclcxx
 
+https://www.khronos.org/assets/uploads/developers/resources/Intro-to-OpenCL-C++-Whitepaper-May15.pdf
 https://www.khronos.org/registry/cl/specs/opencl-2.2-cplusplus.pdf
 https://www.khronos.org/assets/uploads/developers/library/2016-siggraph/OpenCL-BOF-SIGGRAPH_Ju16.pdf
 
@@ -24,7 +25,7 @@ Follow the instructions, with following modifications:
 * install a recent gcc, it didn't compile with Apple clang-700.1.81.
 * When is comes to running cmake, something like the following should work
 
-cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_C_COMPILER=gcc-mp-6 -DCMAKE_CXX_COMPILER=g++-mp-6 ../llvm
+```cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_C_COMPILER=gcc-mp-6 -DCMAKE_CXX_COMPILER=g++-mp-6 ../llvm```
 
 Adjust parameters as needed, meaning should be clear from the names. Ninja is a make replacement, to use make read the GettingStarted.rst file from above. LLVM_TARGETS_TO_BUILD=X86 is just to avoid wasting time building PowerPC, SPARC etc. cross-compilers.
 
@@ -33,6 +34,7 @@ For SPIRV-Tools and SPIRV-Cross just follow the instructions.
 When done, you can just copy the "clang-3.6" binary from the bin/ directory of the llvm build and all the other binaries from Tools and Cross to somewhere.
 
 To compile, assuming we copied the clang binary to bin/clang-cl and libclcxx is in libclcxx/:
-bin/clang-cl -cc1 -emit-spirv -triple spir-unknown-unknown -cl-std=c++ -I libclcxx/include -x cl -o foo.spv foo.cl
+
+```bin/clang-cl -cc1 -emit-spirv -triple spir-unknown-unknown -cl-std=c++ -I libclcxx/include -x cl -o foo.spv foo.cl```
 
 Next step is converting SPIRV to Metal and writing a Loader for Metal code.
